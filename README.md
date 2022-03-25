@@ -1,10 +1,14 @@
-# Python RPS Game - Homework #2
+# RPS-HW
 
-This is homework by Shevchenko Mariia 
+A virtual version of rock paper scissors! Two players complete by choosing an option and comparing their choices. The game is win, lose, or draw - the loser loses a life. Keep playing until one player has no  lives left to live. 
 
-# MIT License
+Made by Shevchenko Mariia
 
-Copyright 2022 Mariia Shevchenko
+## Project Roadmap File
+[Project roadmap Google Doc link](https://docs.google.com/document/d/1Xmf4tfFCxXcQYpb9TeqFW1sidD8nIAtMQP8IrSSJUR8/edit)
+
+## MIT Licennse
+Copyright 2022 Shevchenko Mariia
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
