@@ -1,23 +1,6 @@
 from random import randint
 
-from gameComponents import gameVars
-
-def winorlose(status):
-	print("You", status,"lose! Would you like to try again?")
-	choice  = input ("Y / N ?")
-
-	if choice == "N" or choice =="n":
-		print("You chose to finish the game. See you next time!")
-		exit()
-	elif choice == "Y" or choice =="y":
-		print("Okay! Let's try again!")
-		
-
-		gameVars.player_lives = gameVars.total_lives
-		gameVars.computer_lives = gameVars.total_lives
-	else:
-		print("Make a valid choice - Y or N")
-		choice = input("Y / N? ")
+from gameComponents import gameVars, winLose
 
 while gameVars.player_choice is False:
 	print("♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡ THE BEST RPS GAME EVER ♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡")
@@ -35,7 +18,7 @@ while gameVars.player_choice is False:
 
 	print( "user chose: " + gameVars.player_choice)	
 
-	gameVars.computer_choice = choices[randint(0, 2)]
+	gameVars.computer_choice = gameVars.choices[randint(0, 2)]
 	print("computer chose: " + gameVars.computer_choice)
 
 	if gameVars.computer_choice == gameVars.player_choice:
@@ -66,12 +49,12 @@ while gameVars.player_choice is False:
 			gameVars.player_lives -= 1
 
 	if gameVars.player_lives == 0:
-		winorlose("lose")
+		winLose.winorlose("lose")
 	
 
 
 	if gameVars.computer_lives == 0:
-		winorlose("won")
+		winLose.winorlose("won")
 		
 
 	print("Player lives: ", gameVars.player_lives)
