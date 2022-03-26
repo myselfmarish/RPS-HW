@@ -10,54 +10,60 @@ while gameVars.player_choice is False:
 
 	print("Choose your weapon! Or type quit to exit\n")		
 
-	gameVars.player_choice = input ("What do you want to choose? ROCK, PAPER OR SCISSORS? ")
+	gameVars.player_choice = input ("What do you want to choose? ROCK, PAPER OR SCISSORS? \U0001F600")
 	
 	if gameVars.player_choice == "quit":
 		print("You chose quit")
 		exit()
 
-	print( "user chose: " + gameVars.player_choice)	
+	validate = gameVars.player_choice in gameVars.choices
+	if validate == False:
+		print("Sorry enter one of the following: ROCK,PAPER,SCISSORS")
+		gameVars.player_choice = False
 
-	gameVars.computer_choice = gameVars.choices[randint(0, 2)]
-	print("computer chose: " + gameVars.computer_choice)
+	else:
+		print( "user chose: " + gameVars.player_choice)	
 
-	if gameVars.computer_choice == gameVars.player_choice:
-		print("tie")
+		gameVars.computer_choice = gameVars.choices[randint(0, 2)]
+		print("computer chose: " + gameVars.computer_choice)
 
-	elif gameVars.computer_choice == "rock":
-		if gameVars.player_choice == "scissors":
-			print("You lose!:(")
-			gameVars.player_lives -= 1
-		else:
-			print("You win!:)")
-			gameVars.computer_lives -= 1
+		if gameVars.computer_choice == gameVars.player_choice:
+			print("tie")
 
-	elif gameVars.computer_choice == "paper":
-		if gameVars.player_choice == "scissors":
-			print("You win!:)")
-			gameVars.computer_lives -= 1
-		else:
-			print("You lose!:(")
-			gameVars.player_lives -= 1
+		elif gameVars.computer_choice == "rock":
+			if gameVars.player_choice == "scissors":
+				print("You lose!:(")
+				gameVars.player_lives -= 1
+			else:
+				print("You win!:)")
+				gameVars.computer_lives -= 1
 
-	elif gameVars.computer_choice == "scissors":
-		if gameVars.player_choice == "rock":
-			print("You win!:)")
-			gameVars.computer_lives -= 1
-		else:
-			print("You lose!:(")
-			gameVars.player_lives -= 1
+		elif gameVars.computer_choice == "paper":
+			if gameVars.player_choice == "scissors":
+				print("You win!:)")
+				gameVars.computer_lives -= 1
+			else:
+				print("You lose!:(")
+				gameVars.player_lives -= 1
 
-	if gameVars.player_lives == 0:
-		winLose.winorlose("lose")
-	
+		elif gameVars.computer_choice == "scissors":
+			if gameVars.player_choice == "rock":
+				print("You win!:)")
+				gameVars.computer_lives -= 1
+			else:
+				print("You lose!:(")
+				gameVars.player_lives -= 1
 
-
-	if gameVars.computer_lives == 0:
-		winLose.winorlose("won")
+		if gameVars.player_lives == 0:
+			winLose.winorlose("lose",gameVars)
 		
 
-	print("Player lives: ", gameVars.player_lives)
-	print("Computer lives: ", gameVars.computer_lives)
 
-	gameVars.player_choice = False 
+		if gameVars.computer_lives == 0:
+			winLose.winorlose("won",game)
+			
+
+		print("Player lives: ", gameVars.player_lives)
+		print("Computer lives: ", gameVars.computer_lives)
+
+		gameVars.player_choice = False 
